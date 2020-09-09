@@ -1,28 +1,23 @@
 var questions = [
   {
-    question: "Awnser this question A",
-    choices: ["Awnser A1", "Awnser B1", "Awnser C1", "Awnser D1"],
-    correct: "Awnser A1",
+    question: "Answer this question A",
+    choices: ["Answer A1", "Answer B1", "Answer C1", "Answer D1"],
+    correct: "Answer A1",
   },
   {
-    question: "Awnser this question B",
-    choices: ["Awnser A2", "Awnser B2", "Awnser C2", "Awnser D2"],
-    correct: "Awnser A2",
+    question: "Answer this question B",
+    choices: ["Answer A2", "Answer B2", "Answer C2", "Answer D2"],
+    correct: "Answer B2",
   },
   {
-    question: "Awnser this question C",
-    choices: ["Awnser A3", "Awnser B3", "Awnser C3", "Awnser D3"],
-    correct: "Awnser C3",
+    question: "Answer this question C",
+    choices: ["Answer A3", "Answer B3", "Answer C3", "Answer D3"],
+    correct: "Answer C3",
   },
   {
-    question: "Awnser this question D",
-    choices: ["Awnser A4", "Awnser B4", "Awnser C4", "Awnser D4"],
-    correct: "Awnser A4",
-  },
-  {
-    question: "none",
-    choices: ["none"],
-    correct: "none",
+    question: "Answer this question D",
+    choices: ["Answer A4", "Answer B4", "Answer C4", "Answer D4"],
+    correct: "Answer D4",
   },
 ];
 
@@ -61,17 +56,19 @@ function startTimer() {
 }
 
 function displayQuiz() {
-  titleQuestion.textContent = questions[questionNumber].question;
-  console.log(titleQuestion);
-  choiceA.textContent = questions[questionNumber].choices[0];
-  choiceB.textContent = questions[questionNumber].choices[1];
-  choiceC.textContent = questions[questionNumber].choices[2];
-  choiceD.textContent = questions[questionNumber].choices[3];
-  quiz.style = "display: block";
+  if (questionNumber !== 4) {
+    titleQuestion.textContent = questions[questionNumber].question;
+    console.log(titleQuestion);
+    choiceA.textContent = questions[questionNumber].choices[0];
+    choiceB.textContent = questions[questionNumber].choices[1];
+    choiceC.textContent = questions[questionNumber].choices[2];
+    choiceD.textContent = questions[questionNumber].choices[3];
+    quiz.style = "display: block";
+  }
 }
 
 function userPicks() {
-    userChoice = event.target.textContent;
+  userChoice = event.target.textContent;
   if (userChoice === questions[questionNumber].correct) {
     questionNumber++;
     displayQuiz();
@@ -84,13 +81,13 @@ function userPicks() {
   }
 }
 
-quiz.addEventListener('click', function(){
-    userPicks();
+quiz.addEventListener("click", function () {
+  userPicks();
 });
 
-function endGame (){
-    if(questionNumber === 4){
+function endGame() {
+  if (questionNumber === 4) {
     quiz.style = "display: none";
     endScreen.style = "display: block";
-    }
+  }
 }
