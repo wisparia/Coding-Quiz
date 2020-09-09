@@ -19,6 +19,11 @@ var questions = [
     choices: ["Awnser A4", "Awnser B4", "Awnser C4", "Awnser D4"],
     correct: "Awnser A4",
   },
+  {
+    question: "none",
+    choices: ["none"],
+    correct: "none",
+  },
 ];
 
 var startQuiz = document.getElementById("startQuiz");
@@ -55,13 +60,37 @@ function startTimer() {
   }, 1000);
 }
 
-function displayQuiz () { 
-    titleQuestion.textContent = questions[questionNumber].question;
-    console.log(titleQuestion);
-    choiceA.textContent = questions[questionNumber].choices[0];
-    choiceB.textContent = questions[questionNumber].choices[1];
-    choiceC.textContent = questions[questionNumber].choices[2];
-    choiceD.textContent = questions[questionNumber].choices[3];
-    quiz.style = "display: block";
+function displayQuiz() {
+  titleQuestion.textContent = questions[questionNumber].question;
+  console.log(titleQuestion);
+  choiceA.textContent = questions[questionNumber].choices[0];
+  choiceB.textContent = questions[questionNumber].choices[1];
+  choiceC.textContent = questions[questionNumber].choices[2];
+  choiceD.textContent = questions[questionNumber].choices[3];
+  quiz.style = "display: block";
 }
 
+function userPicks() {
+    userChoice = event.target.textContent;
+  if (userChoice === questions[questionNumber].correct) {
+    questionNumber++;
+    displayQuiz();
+    endGame();
+  } else {
+    secondsLeft = secondsLeft - 10;
+    questionNumber++;
+    displayQuiz();
+    endGame();
+  }
+}
+
+quiz.addEventListener('click', function(){
+    userPicks();
+});
+
+function endGame (){
+    if(questionNumber === 4){
+    quiz.style = "display: none";
+    endScreen.style = "display: block";
+    }
+}
