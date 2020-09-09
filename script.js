@@ -23,6 +23,7 @@ var questions = [
 
 var startQuiz = document.getElementById("startQuiz");
 var quiz = document.getElementById("quiz");
+var buttons = document.getElementById("buttons");
 var titleQuestion = document.getElementById("titleQuestion");
 var start = document.getElementById("start");
 
@@ -84,8 +85,10 @@ function userPicks() {
   }
 }
 
-quiz.addEventListener("click", function () {
+buttons.addEventListener("click", function () {
+  event.stopPropagation();
   userPicks();
+  
 });
 
 function endGame() {
