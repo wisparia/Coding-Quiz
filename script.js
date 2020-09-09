@@ -30,8 +30,10 @@ var choiceA = document.getElementById("choiceA");
 var choiceB = document.getElementById("choiceB");
 var choiceC = document.getElementById("choiceC");
 var choiceD = document.getElementById("choiceD");
+
 var timeLeft = document.getElementById("time");
 var highscores = document.getElementById("highscores");
+var finalScore = document.getElementById("finalScore");
 var questionNumber = 0;
 var score = 0;
 var secondsLeft = 60;
@@ -71,6 +73,7 @@ function userPicks() {
   userChoice = event.target.textContent;
   if (userChoice === questions[questionNumber].correct) {
     questionNumber++;
+    score = score + 20;
     displayQuiz();
     endGame();
   } else {
@@ -89,5 +92,8 @@ function endGame() {
   if (questionNumber === 4) {
     quiz.style = "display: none";
     endScreen.style = "display: block";
+    score = score + secondsLeft;
+    clearInterval(timerInterval);
+    finalScore.innerHTML = "Your final score is " + score + "!";
   }
 }
