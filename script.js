@@ -1,26 +1,40 @@
+// The questions, choices, and awnsers that will be pulled for each question in the displayQuiz function.
 var questions = [
   {
-    question: "Answer this question A",
-    choices: ["Answer A1", "Answer B1", "Answer C1", "Answer D1"],
-    correct: "Answer A1",
+    question: "Commonly used data tyles DO NOT include:",
+    choices: ["Strings", "Booleans", "Alerts", "Numbers"],
+    correct: "Alerts",
   },
   {
-    question: "Answer this question B",
-    choices: ["Answer A2", "Answer B2", "Answer C2", "Answer D2"],
-    correct: "Answer B2",
+    question: "The condition in an if/else statement is enclosed within ____.",
+    choices: ["Quotations", "Curly Brackets", "Parenthesis", "Square Brackets"],
+    correct: "Curly Brackets",
   },
   {
-    question: "Answer this question C",
-    choices: ["Answer A3", "Answer B3", "Answer C3", "Answer D3"],
-    correct: "Answer C3",
+    question: "Arrays in JavaScript can be used to store ____.",
+    choices: [
+      "Numbers and Strings",
+      "Other Arrays",
+      "Booleans",
+      "All of the Above",
+    ],
+    correct: "All of the Above",
   },
   {
-    question: "Answer this question D",
-    choices: ["Answer A4", "Answer B4", "Answer C4", "Answer D4"],
-    correct: "Answer D4",
+    question:
+      "String values must be enclosed within ____ when being assigned to variables.",
+    choices: ["Commas", "Curly Brackets", "Quotes", "Parenthesis"],
+    correct: "Quotes",
+  },
+  {
+    question:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices: ["JavaScript", "Terminal/bash", "For Loops", "Console Log"],
+    correct: "Console Log",
   },
 ];
 
+// the defined variables that will be used to pull, and connect sections throughout the javascript and HTML
 var startQuiz = document.getElementById("startQuiz");
 var quiz = document.getElementById("quiz");
 var buttons = document.getElementById("buttons");
@@ -33,6 +47,7 @@ var choiceC = document.getElementById("choiceC");
 var choiceD = document.getElementById("choiceD");
 
 var timeLeft = document.getElementById("time");
+var confirm = document.getElementById("confirm");
 var highscores = document.getElementById("highscores");
 var finalScore = document.getElementById("finalScore");
 var questionNumber = 0;
@@ -40,12 +55,14 @@ var score = 0;
 var secondsLeft = 60;
 var timerInterval;
 
+// The  listener that will start the quiz and the timer once the user hits the start button.
 start.addEventListener("click", function () {
   startQuiz.style = "display: none";
   startTimer();
   displayQuiz();
 });
 
+// function that will run the timer onc the user starts the quiz.
 function startTimer() {
   //starts the timer
   timerInterval = setInterval(function () {
@@ -54,12 +71,14 @@ function startTimer() {
     // stops the timer at 0 seconds left
     if (secondsLeft < 1) {
       clearInterval(timerInterval);
+      endGame();
     }
   }, 1000);
 }
 
+// Generates the questions and choices to the user in the buttons displayed on the screen.
 function displayQuiz() {
-  if (questionNumber !== 4) {
+  if (questionNumber !== 5) {
     titleQuestion.textContent = questions[questionNumber].question;
     console.log(titleQuestion);
     choiceA.textContent = questions[questionNumber].choices[0];
@@ -67,36 +86,41 @@ function displayQuiz() {
     choiceC.textContent = questions[questionNumber].choices[2];
     choiceD.textContent = questions[questionNumber].choices[3];
     quiz.style = "display: block";
+  } else {
+    endGame();
   }
 }
 
+// what happens when the user clicks on a choice.
 function userPicks() {
   userChoice = event.target.textContent;
+  //  If user picked the correct awnser, it adds to their score, and moves onto the next question.
   if (userChoice === questions[questionNumber].correct) {
     questionNumber++;
     score = score + 20;
+    confirm.innerHTML = "Correct!";
     displayQuiz();
-    endGame();
+    // if user picks the incorrect it minuses time and moves to the next question or onto the end screen if all questions have been done.
   } else {
     secondsLeft = secondsLeft - 10;
     questionNumber++;
+    confirm.innerHTML = "Wrong!";
     displayQuiz();
-    endGame();
   }
 }
-
+// Adding the listener to 'listen' for the user clicking on the buttons.
 buttons.addEventListener("click", function () {
+  // stops buttons from overlapping for the click function since they are all being pulled from the same div box
   event.stopPropagation();
+  //   will run the userPicks function
   userPicks();
-  
 });
-
+// Brings up the end screen for the quiz once it gets past the last question
 function endGame() {
-  if (questionNumber === 4) {
-    quiz.style = "display: none";
-    endScreen.style = "display: block";
-    score = score + secondsLeft;
-    clearInterval(timerInterval);
-    finalScore.innerHTML = "Your final score is " + score + "!";
-  }
+  score = score + secondsLeft;
+  quiz.style = "display: none";
+  endScreen.style = "display: block";
+  finalScore.innerHTML = "Your final score is " + score + "!";
+  timeLeft.innerHTML = "Time: 0";
+  clearInterval(timerInterval);
 }
