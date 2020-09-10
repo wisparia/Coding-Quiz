@@ -44,8 +44,8 @@ body {
   background-color: seashell;
   width: 100%;
   padding: 5px;
-margin: 5px;
-border-radius: 25px;
+  margin: 5px;
+  border-radius: 25px;
 }
 /* styling for one of the button options */
 #choiceB {
@@ -102,8 +102,8 @@ border-radius: 25px;
 }
 /* changes the styling for the correct or wrong statements displayed to the user */
 #confirm {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 10px;
-    color: rgb(66, 48, 66);
-    font-size: large;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 10px;
+  color: rgb(66, 48, 66);
+  font-size: large;
 }
