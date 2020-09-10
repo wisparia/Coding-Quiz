@@ -33,7 +33,6 @@ var questions = [
     correct: "Console Log",
   },
 ];
-
 // the defined variables that will be used to pull, and connect sections throughout the javascript and HTML
 var startQuiz = document.getElementById("startQuiz");
 var quiz = document.getElementById("quiz");
@@ -50,6 +49,7 @@ var timeLeft = document.getElementById("time");
 var confirm = document.getElementById("confirm");
 var highscores = document.getElementById("highscores");
 var finalScore = document.getElementById("finalScore");
+var userInitials = document.getElementById("userInitials");
 var questionNumber = 0;
 var score = 0;
 var secondsLeft = 60;
@@ -75,7 +75,6 @@ function startTimer() {
     }
   }, 1000);
 }
-
 // Generates the questions and choices to the user in the buttons displayed on the screen.
 function displayQuiz() {
   if (questionNumber !== 5) {
@@ -90,7 +89,6 @@ function displayQuiz() {
     endGame();
   }
 }
-
 // what happens when the user clicks on a choice.
 function userPicks() {
   userChoice = event.target.textContent;
@@ -118,9 +116,44 @@ buttons.addEventListener("click", function () {
 // Brings up the end screen for the quiz once it gets past the last question
 function endGame() {
   score = score + secondsLeft;
+  score = score < 0 ? 0 : score;
   quiz.style = "display: none";
   endScreen.style = "display: block";
   finalScore.innerHTML = "Your final score is " + score + "!";
   timeLeft.innerHTML = "Time: 0";
   clearInterval(timerInterval);
 }
+
+// Creates the vartiables used for storing the submitted scores on local storage
+var storedScores = localStorage.getItem("resultsString");
+var resultsArray;
+
+// Adds the event listener for submitting your score at the end of the quiz and then stores it locally on the users browser
+submitScore.addEventListener("click", function () {
+  event.preventDefault();
+  if (storedScores === null) {
+    resultsArray = [];
+  } else {
+    resultsArray = JSON.parse(storedScores);
+  }
+  var gameResult = {
+    player: userInitials.value.trim(),
+    totalscore: score,
+  };
+  resultsArray.push(gameResult);
+  localStorage.setItem("resultsString", JSON.stringify(resultsArray));
+
+});
+
+// Attempted to add in a highscore board but could not get it to load properly. Will come back to play with on my own time.
+
+// highscores.addEventListener("click", function(){
+// for (var i = 0; i < resultsArray.length; i++) {
+//     endScreen.style = "display: none";
+//     highscores.classList.remove("hide");
+//     var nameRow = document.createElement("p");
+//     nameRow.textContent = resultsArray[i].player;
+//     scoreboard.appendChild(nameRow);
+//     console.log(nameRow);
+//   }
+// });

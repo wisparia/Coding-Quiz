@@ -19,3 +19,8 @@ width: 100%;
 #time {
     align-content: right;
 }
+
+
+.hide {
+    display: none!important;
+}
