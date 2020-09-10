@@ -1,26 +1,104 @@
 h1 {
-    color: blue;
+  color: rgb(159, 159, 182);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: rgb(66, 48, 66);
+  padding: 10px;
+  border-radius: 25px;
 }
 
-button{
-    background-color: orange;
-    
+#titleQuestion {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
 }
 
-button:hover{
-    background-color: orangered;
+button {
+  background-color: orange;
 }
 
-header{
-height: 50px;
-width: 100%;
+button:hover {
+  background-color: orangered;
+}
+
+.hide {
+  display: none !important;
 }
 
 #time {
-    align-content: right;
+  color: rgb(66, 48, 66);
+  padding: 20px;
+  background-color: powderblue;
+  float: left;
+  width: 100%;
 }
 
+body {
+  background-color: rgb(159, 159, 182);
+}
 
-.hide {
-    display: none!important;
+#choiceA {
+  background-color: seashell;
+  width: 100%;
+  padding: 5px;
+margin: 5px;
+border-radius: 25px;
+}
+
+#start {
+  background-color: seashell;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+}
+
+#submitScore {
+  background-color: seashell;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+}
+
+#choiceB {
+  background-color: silver;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+}
+
+#choiceC {
+  background-color: slategray;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+}
+
+#choiceD {
+  background-color: rgb(68, 82, 97);
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+}
+
+.col-8 {
+  background-color: powderblue;
+  margin: 10px;
+  padding-bottom: 50px;
+  padding-top: 10px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+#userInitials {
+  width: 100%;
+}
+
+#confirm {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 10px;
+    color: rgb(66, 48, 66);
+    font-size: large;
 }
