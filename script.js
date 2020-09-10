@@ -142,9 +142,11 @@ submitScore.addEventListener("click", function () {
   };
   resultsArray.push(gameResult);
   localStorage.setItem("resultsString", JSON.stringify(resultsArray));
-
 });
 
+startOver.addEventListener("click", function () {
+  location.reload();
+});
 // Attempted to add in a highscore board but could not get it to load properly. Will come back to play with on my own time.
 
 // highscores.addEventListener("click", function(){

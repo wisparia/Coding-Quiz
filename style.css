@@ -1,3 +1,4 @@
+/* Adds the styling for the main header! */
 h1 {
   color: rgb(159, 159, 182);
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -6,23 +7,18 @@ h1 {
   border-radius: 25px;
 }
 
+/* Adds the styling for the questions being asked to the user */
 #titleQuestion {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
 }
 
-button {
-  background-color: orange;
-}
-
-button:hover {
-  background-color: orangered;
-}
-
+/* gives me a hide class to hide content */
 .hide {
   display: none !important;
 }
 
+/* Adds styling for the timer */
 #time {
   color: rgb(66, 48, 66);
   padding: 20px;
@@ -31,18 +27,11 @@ button:hover {
   width: 100%;
 }
 
+/* base background of the page */
 body {
   background-color: rgb(159, 159, 182);
 }
-
-#choiceA {
-  background-color: seashell;
-  width: 100%;
-  padding: 5px;
-margin: 5px;
-border-radius: 25px;
-}
-
+/* styling for the start button */
 #start {
   background-color: seashell;
   width: 100%;
@@ -50,15 +39,15 @@ border-radius: 25px;
   margin: 5px;
   border-radius: 25px;
 }
-
-#submitScore {
+/* styling for one of the button options */
+#choiceA {
   background-color: seashell;
   width: 100%;
   padding: 5px;
-  margin: 5px;
-  border-radius: 25px;
+margin: 5px;
+border-radius: 25px;
 }
-
+/* styling for one of the button options */
 #choiceB {
   background-color: silver;
   width: 100%;
@@ -66,7 +55,7 @@ border-radius: 25px;
   margin: 5px;
   border-radius: 25px;
 }
-
+/* styling for one of the button options */
 #choiceC {
   background-color: slategray;
   width: 100%;
@@ -74,7 +63,7 @@ border-radius: 25px;
   margin: 5px;
   border-radius: 25px;
 }
-
+/* styling for one of the button options */
 #choiceD {
   background-color: rgb(68, 82, 97);
   width: 100%;
@@ -82,7 +71,23 @@ border-radius: 25px;
   margin: 5px;
   border-radius: 25px;
 }
-
+/* styling for the submitscore button */
+#submitScore {
+  background-color: seashell;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+}
+/* styling for the start over button */
+#startOver {
+  background-color: silver;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+}
+/* styling for the main column */
 .col-8 {
   background-color: powderblue;
   margin: 10px;
@@ -91,11 +96,11 @@ border-radius: 25px;
   border-radius: 25px;
   text-align: center;
 }
-
+/* makes the entry field wider */
 #userInitials {
   width: 100%;
 }
-
+/* changes the styling for the correct or wrong statements displayed to the user */
 #confirm {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 10px;

@@ -17,14 +17,18 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <!-- links to the stylesheet -->
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- pulls the timer id so javascript can run the timer -->
     <div id="time">Time: 60</div>
     <div class="container">
       <div class="row">
         <div class="col-2"></div>
+        <!-- the main content is contained into this column -->
         <div class="col-8">
+          <!-- the main page section! -->
           <div id="startQuiz">
             <h1>Start Quiz!</h1>
             <p>
@@ -36,11 +40,13 @@
               limit.
             </p>
             <p>Note: incorrect answers will take 10 seconds off the clock!</p>
+            <!-- This button starts the quiz -->
             <button id="start">Start Quiz</button>
           </div>
-
+          <!--  -->
           <div id="quiz" style="display: none;">
             <h1 id="titleQuestion">Question</h1>
+            <!-- Where the buttons are displayed -->
             <div id="buttons">
               <button id="choiceA">Button 1</button>
               <button id="choiceB">Button 2</button>
@@ -49,10 +55,12 @@
             </div>
             <div id="confirm"></div>
           </div>
+          <!-- the end screen so javascript can pull it once the user has finished all of the questions or the timer has run out -->
           <div id="endScreen" style="display: none;">
             <h1 id="end">Game Over!</h1>
             <div id="finalScore"></div>
             <div class="input-group">
+              <!-- instructions for inputting your initials to record your highscore -->
               <label for="initials"
                 >Enter your initials to record your score!</label
               >
@@ -61,14 +69,17 @@
                 id="userInitials"
                 placeholder="Your Initials"
               />
-              <button id="submitScore">Submit Your Score</button><br />
+              <!-- the button to submit your score to local storage -->
+              <button id="submitScore">Submit Your Score</button>
+              <!-- button to start over! -->
+              <button id="startOver">Try Again?</button>
             </div>
           </div>
         </div>
         <div class="col-2"></div>
       </div>
     </div>
-
+<!-- attaches the javascript to the html -->
     <script src="./script.js"></script>
   </body>
 </html>
