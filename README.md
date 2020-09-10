@@ -1,6 +1,6 @@
 # Coding-Quiz
 
-![Image of Screenshot](./JavascriptCodingQuiz.png)
+![Image of Screenshot](JavascriptCodingQuiz.png);
 
 ## Demo
 (https://samisully.github.io/Coding-Quiz/)
